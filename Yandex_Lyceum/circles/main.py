@@ -10,7 +10,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         uic.loadUi('UI.ui', self)
         self.setWindowTitle('Circles')
-        self.setGeometry(500, 500)
+        self.setGeometry(300, 300, 500, 500)
         self.pushButton.clicked.connect(self.creater)
         self.d = 0
 
@@ -18,11 +18,11 @@ class MainWindow(QMainWindow):
         self.d = randint(10, 300)
         self.repaint()
     
-    def paintEvent(self):
+    def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
-        qp.setBrush(QColor.yellow)
-        qp.drawEllipse(200, 200, self.d, self.d)
+        qp.setBrush(QColor(250, 250, 0))
+        qp.drawEllipse(250 - (self.d // 2), 250 - (self.d // 2), self.d, self.d)
         qp.end()
 
 
