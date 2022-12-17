@@ -8,7 +8,7 @@ from random import randint
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        uic.loadUI('UI.ui', self)
+        uic.loadUi('UI.ui', self)
         self.setWindowTitle('Circles')
         self.setGeometry(500, 500)
         self.pushButton.clicked.connect(self.creater)
@@ -28,6 +28,6 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    win = QMainWindow()
+    win = MainWindow()
     win.show()
     exit(app.exec_())
