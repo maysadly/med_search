@@ -26,7 +26,7 @@ class Form(QWidget):
             self.dbv.select_data()
             self.dbv.connection.commit()
             self.close()
-
+    
  
 class DBSample(QMainWindow):
     def __init__(self):
