@@ -2,12 +2,14 @@ import sqlite3
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QWidget
+from uicon import Ui_MainWindow
+from uiform import Ui_Form
 
 
-class Form(QWidget):
+class Form(QWidget, Ui_Form):
     def __init__(self, dbv):
         super().__init__()
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        self.setupUi(self)
         self.dbv = dbv
         self.pushButton.clicked.connect(self.add_coffee)
 
@@ -28,10 +30,10 @@ class Form(QWidget):
             self.close()
     
  
-class DBSample(QMainWindow):
+class DBSample(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
+        self.setupUi(self)
         self.connection = sqlite3.connect("coffee.db")
         self.pushButton.clicked.connect(self.select_data)
         self.textEdit.setPlainText("SELECT * FROM coffee")
